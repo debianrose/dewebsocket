@@ -1,0 +1,37 @@
+[package]
+name = "dewebsocket"
+version = "0.1.0"
+edition = "2021"
+description = "A high-performance WebSocket server library for Rust"
+authors = ["debianrose <desharish@yahoo.com>"]
+license = "MIT"
+repository = "https://github.com/debianrose/dewebsocket"
+keywords = ["websocket", "server", "async", "tokio"]
+categories = ["network-programming", "asynchronous"]
+
+[lib]
+name = "dewebsocket"
+path = "src/lib.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+tokio-tungstenite = "0.20"
+futures-util = "0.3"
+uuid = { version = "1.0", features = ["v4"] }
+log = "0.4"
+env_logger = "0.10"
+dashmap = "6.1.0"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
+
+[[example]]
+name = "advanced" 
+path = "examples/advanced.rs"
